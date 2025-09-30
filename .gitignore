@@ -1,0 +1,25 @@
+Ambiente Virtual (se existir fora do container)
+.venv/
+venv/
+env/
+
+Ficheiros de cache e compilados do Python
+pycache/
+*.pyc
+*.pyo
+*.pyd
+
+Ficheiros de configuração de IDEs e editores
+Manter a configuração do devcontainer é bom, então ignoramos o resto
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.devcontainer/
+
+Ficheiros de sistema
+.DS_Store
+
+Ficheiros de dependências de outros gestores
+*.egg-info/

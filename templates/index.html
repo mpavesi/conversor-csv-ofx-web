@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor CSV para OFX</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 25px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .instructions {
+            background-color: #e9ecef;
+            border-left: 5px solid #007bff;
+            padding: 15px;
+            margin: 25px 0;
+            border-radius: 5px;
+        }
+        .form-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #dee2e6;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="file"], input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .radio-group label {
+            display: inline-block;
+            margin-right: 20px;
+            font-weight: normal;
+        }
+        button {
+            width: 100%;
+            background: linear-gradient(45deg, #28a745, #218838);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        button:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Conversor Avançado de CSV para OFX</h1>
+
+    <div class="instructions">
+        <p><strong>Instruções:</strong></p>
+        <p>O cabeçalho do seu CSV deve conter colunas como 'data', 'descrição' e 'valor'. O script tentará identificar os nomes corretos automaticamente.</p>
+    </div>
+
+    <form action="/converter" method="post" enctype="multipart/form-data">
+        
+        <div class="form-section">
+            <div class="form-group">
+                <label for="csv_file">1. Selecione o arquivo CSV:</label>
+                <input type="file" id="csv_file" name="csv_file" accept=".csv" required>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <label>2. Defina as opções de conversão:</label>
+            <div class="form-group radio-group">
+                <input type="radio" id="banco" name="tipo_conta" value="banco" checked>
+                <label for="banco">Conta Corrente / Poupança</label>
+                <input type="radio" id="credito" name="tipo_conta" value="credito">
+                <label for="credito">Cartão de Crédito</label>
+            </div>
+            <div class="form-group radio-group">
+                <input type="radio" id="ponto-virgula" name="delimitador" value=";" checked>
+                <label for="ponto-virgula">Delimitador Ponto e Vírgula (;)</label>
+                <input type="radio" id="virgula" name="delimitador" value=",">
+                <label for="virgula">Delimitador Vírgula (,)</label>
+            </div>
+             <div class="form-group">
+                <label for="ignorar">Ignorar transações que contenham (separado por vírgula):</label>
+                <input type="text" id="ignorar" name="ignorar" placeholder="Ex: resgate, aplicação, transferência">
+            </div>
+        </div>
+        
+        <button type="submit">Converter e Baixar Arquivo OFX</button>
+
+    </form>
+
+</body>
+</html>
+python

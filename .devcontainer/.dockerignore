@@ -1,0 +1,23 @@
+# Ambiente Virtual do Python
+venv/
+.venv/
+env/
+.env
+
+# Arquivos de cache e compilados do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Arquivos de IDE e sistema
+.vscode/
+.idea/
+.DS_Store
+
+# Git
+.git/
+.gitignore
+
+# Outros
+*.egg-info/

@@ -1,0 +1,22 @@
+{
+	"name": "Conversor OFX (Python 3.11)",
+	"build": {
+		// O contexto agora é a pasta do projeto (..), e o Dockerfile
+		// está na raiz dessa pasta.
+		"context": "..",
+		"dockerfile": "./Dockerfile"
+	},
+	"forwardPorts": [5000],
+	"postCreateCommand": "pip install --no-cache-dir -r requirements.txt",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"python.defaultInterpreterPath": "/opt/venv/bin/python"
+			},
+			"extensions": [
+				"ms-python.python"
+			]
+		}
+	}
+}
+

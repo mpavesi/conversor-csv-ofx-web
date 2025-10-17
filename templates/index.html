@@ -97,6 +97,13 @@
                 <input type="radio" id="credito" name="tipo_conta" value="credito">
                 <label for="credito">Cartão de Crédito</label>
             </div>
+            <div class="form-group">
+                <label for="formato_decimal">Formato do Valor no CSV (Separador Decimal):</label>
+                <select class="form-control" id="formato_decimal" name="formato_decimal" required>
+                    <option value="virgula" selected>Vírgula (Ex: 1.234,56)</option>
+                    <option value="ponto">Ponto (Ex: 1,234.56)</option>
+                </select>
+            </div>
             <div class="form-group radio-group">
                 <input type="radio" id="ponto-virgula" name="delimitador" value=";" checked>
                 <label for="ponto-virgula">Delimitador Ponto e Vírgula (;)</label>
